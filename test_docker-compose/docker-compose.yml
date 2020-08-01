@@ -1,0 +1,6 @@
+version: '2'
+services:
+  test:
+    build: maven_test
+    volumes:
+      - ./boxfuse:/boxfuse
