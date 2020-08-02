@@ -3,4 +3,15 @@ services:
   test:
     build: maven_test
     volumes:
-      - ./boxfuse:/boxfuse
+      - boxfuse:/boxfuse/boxfuse-sample-java-war-hello/target
+  web:      
+    image: tomcat:8.0
+    ports:
+      - "8080:8080"
+    volumes:
+      - boxfuse:/usr/local/tomcat/webapps
+    volumes_from:
+      - test
+
+volumes:
+  boxfuse:
